@@ -13,10 +13,4 @@ API.interceptors.request.use((req) => {
 });
 
 export default API;
-```
 
----
-
-### Step 2 — Create `.env` in frontend root folder
-```
-REACT_APP_API_URL=https://internverse-backend-prag.onrender.com
