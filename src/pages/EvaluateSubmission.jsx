@@ -73,7 +73,7 @@ function EvaluateSubmission() {
               placeholder="Write your feedback for the intern..."
               rows={5}
               value={feedback}
-              onChange={(e) => setFeedback(e.target.value)}
+              onChange={(e) => setRating(parseInt(e.target.value))}
             />
 
             <button
@@ -93,3 +93,4 @@ function EvaluateSubmission() {
 
 
 export default EvaluateSubmission;
+
