@@ -23,8 +23,8 @@ function EvaluateSubmission() {
     try {
       await API.post("/evaluation", {
         rating: parseInt(rating),
-      feedback,
-      submission: { id: parseInt(id) }
+        feedback,
+        submission: { id: parseInt(id) }
       });
       alert("Evaluation submitted successfully");
       navigate("/evaluations");
@@ -62,7 +62,7 @@ function EvaluateSubmission() {
               className="border p-2 w-full mb-4 rounded"
               placeholder="Enter rating between 1 and 5"
               value={rating}
-              onChange={(e) => setRating(e.target.value)}
+              onChange={(e) => setRating(parseInt(e.target.value))}
             />
 
             <label className="block text-sm font-semibold text-gray-600 mb-1">
@@ -73,7 +73,7 @@ function EvaluateSubmission() {
               placeholder="Write your feedback for the intern..."
               rows={5}
               value={feedback}
-              onChange={(e) => setRating(parseInt(e.target.value))}
+              onChange={(e) => setFeedback(e.target.value)}  
             />
 
             <button
@@ -84,13 +84,10 @@ function EvaluateSubmission() {
             </button>
 
           </div>
-
         </div>
       </div>
     </div>
   );
 }
 
-
 export default EvaluateSubmission;
-
