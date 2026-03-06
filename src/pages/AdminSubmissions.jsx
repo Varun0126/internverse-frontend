@@ -58,7 +58,7 @@ function AdminSubmissions(){
               </td>
 
               <td className="border p-2">
-                <a href={s.githubLink} target="_blank">
+                <a href={s.githubLink} target="_blank" rel ="noreferrrer">
                   View
                 </a>
               </td>
@@ -90,5 +90,6 @@ function AdminSubmissions(){
   )
 
 }
+
 
 export default AdminSubmissions;
