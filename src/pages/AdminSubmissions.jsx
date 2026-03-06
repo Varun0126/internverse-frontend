@@ -23,6 +23,11 @@ function AdminSubmissions() {
     fetchSubmissions();
   }, []);
 
+  const getStatusClass = (status) => {
+    if (status === "APPROVED") return "border p-2 font-bold text-green-600";
+    return "border p-2 font-bold text-orange-500";
+  };
+
   return (
     <div className="min-h-screen bg-gray-100">
       <Navbar />
@@ -34,7 +39,7 @@ function AdminSubmissions() {
             onClick={() => navigate(-1)}
             className="text-sm text-gray-500 hover:text-gray-700 mb-6 flex items-center gap-1"
           >
-            ← Back
+            Back
           </button>
 
           <h2 className="text-2xl font-bold text-gray-800 mb-6">
@@ -61,15 +66,15 @@ function AdminSubmissions() {
                   <tr key={s.id} className="hover:bg-gray-50">
 
                     <td className="border p-2">
-                      {s.intern?.name || "Intern"}
+                      {s.intern ? s.intern.name : "Intern"}
                     </td>
 
                     <td className="border p-2">
-                      {s.task?.title || "N/A"}
+                      {s.task ? s.task.title : "N/A"}
                     </td>
 
                     <td className="border p-2">
-                      
+                      <a
                         href={s.githubLink}
                         target="_blank"
                         rel="noreferrer"
@@ -79,18 +84,14 @@ function AdminSubmissions() {
                       </a>
                     </td>
 
-                    <td className={`border p-2 font-bold ${
-                      s.status === "APPROVED"
-                        ? "text-green-600"
-                        : "text-orange-500"
-                    }`}>
+                    <td className={getStatusClass(s.status)}>
                       {s.status}
                     </td>
 
                     <td className="border p-2">
                       <button
                         onClick={() => navigate(`/evaluate/${s.id}`)}
-                        className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded transition"
+                        className="bg-green-600 text-white px-3 py-1 rounded"
                       >
                         Evaluate
                       </button>
