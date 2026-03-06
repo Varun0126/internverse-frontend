@@ -22,9 +22,9 @@ function EvaluateSubmission() {
     }
     try {
       await API.post("/evaluation", {
-        rating,
-        feedback,
-        submission: { id }
+        rating: parseInt(rating),
+      feedback,
+      submission: { id: parseInt(id) }
       });
       alert("Evaluation submitted successfully");
       navigate("/evaluations");
@@ -90,5 +90,6 @@ function EvaluateSubmission() {
     </div>
   );
 }
+
 
 export default EvaluateSubmission;
