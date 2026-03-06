@@ -12,7 +12,7 @@ import AdminSubmissions from "./pages/AdminSubmissions";
 import EvaluateSubmission from "./pages/EvaluateSubmission";
 import MyCertificates from "./pages/MyCertificates";
 import Certificates from "./pages/Certificates";       // ✅ missing import added
-import Evaluations from "./pages/Evaluations";         // ✅ missing import added
+        // ✅ missing import added
 
 function App() {
   return (
